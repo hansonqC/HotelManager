@@ -7,21 +7,21 @@ import java.sql.SQLException;
 /**
  * Created by lukasz on 2017-10-28.
  */
-public class MsSqlConnetor {
-    private static final String SQL_LINK = "jdbc:sqlserver://MYPC\\\\HOTELMANAGER;databaseName=hotelmanager";
-    private static final String SQL_USER = "admin";
-    private static final String SQL_PASS = "admin";
-    private static final String SQL_CLASS = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+public class FdbConnetor {
+    private static final String SQL_LINK = "jdbc:firebirdsql://localhost:3050/C:\\Users\\lukasz\\Desktop\\HOTEL.FDB";
+    private static final String SQL_USER = "SYSDBA";
+    private static final String SQL_PASS = "Komornik123";
+    private static final String SQL_CLASS = "org.firebirdsql.jdbc.FBDriver";
 
-    public static MsSqlConnetor getInstance(){
+    public static FdbConnetor getInstance(){
         return SingletonHolder.INSTANCE;
     }
 
-    private MsSqlConnetor(){
+    private FdbConnetor(){
 connect();
     }
     private static class SingletonHolder {
-        private static final MsSqlConnetor INSTANCE = new MsSqlConnetor();
+        private static final FdbConnetor INSTANCE = new FdbConnetor();
     }
     private Connection connection;
     private Connection getConnection(){
